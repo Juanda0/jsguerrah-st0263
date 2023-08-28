@@ -11,14 +11,14 @@ class FileService(FileServices_pb2_grpc.FileServicesServicer):
     def ListFiles(self, request, context):
         print("Request is received: " + str(request))
         response = []
-
-        for f in Service.listFiles():
-            fileInfo = FileServices_pb2.FileInfo(name=f.name,
-                                                size=f.size,
-                                                timestamp=f.timestamp)
-            response.append(fileInfo)
-
         try:
+            for f in Service.listFiles():
+                fileInfo = FileServices_pb2.FileInfo(name=f['name'],
+                                                    size=f['size'],
+                                                    timestamp=f['timestamp'])
+                response.append(fileInfo)
+
+
             print('Casteado luce asi:', response)
             return FileServices_pb2.ListFilesResponse(file_info=response)
         except Exception as err:
