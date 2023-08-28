@@ -26,7 +26,9 @@ class FilesListResource(Resource):
         except:
             response = RunAMQP("", function="list")
 
-        return make_response(json.dumps(response), 200, headers)
+        return make_response(json.dumps({
+            "files": response
+        }), 200, headers)
 
 
 class FilesFindResource(Resource):
@@ -50,4 +52,6 @@ class FilesFindResource(Resource):
                 "timestamp": file.timestamp
             })
 
-        return make_response(json.dumps(response), 200, headers)
+        return make_response(json.dumps({
+            "files": response
+        }), 200, headers)
