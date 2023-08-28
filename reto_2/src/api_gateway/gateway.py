@@ -1,7 +1,6 @@
 from flask import Flask
 from routes import file_services_bp
-from dotenv import load_dotenv
-import os
+from api_gateway import LISTEN_IP, LISTEN_PORT
 
 app = Flask(__name__)
 
@@ -11,9 +10,5 @@ def ping():
 
 app.register_blueprint(file_services_bp)
 
-load_dotenv()
-
-PORT = os.getenv('PORT')
-
 def run():
-    app.run(host='0.0.0.0',debug=True, port = PORT)
+    app.run(host=LISTEN_IP,debug=True, port = LISTEN_PORT)
