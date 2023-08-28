@@ -16,7 +16,7 @@ class FileInfo(_message.Message):
     timestamp: str
     def __init__(self, name: _Optional[str] = ..., size: _Optional[int] = ..., timestamp: _Optional[str] = ...) -> None: ...
 
-class ListFilesResponse(_message.Message):
+class FilesResponse(_message.Message):
     __slots__ = ["file_info"]
     FILE_INFO_FIELD_NUMBER: _ClassVar[int]
     file_info: _containers.RepeatedCompositeFieldContainer[FileInfo]
@@ -27,9 +27,3 @@ class FindFileRequest(_message.Message):
     FILE_NAME_FIELD_NUMBER: _ClassVar[int]
     file_name: str
     def __init__(self, file_name: _Optional[str] = ...) -> None: ...
-
-class FindFileResponse(_message.Message):
-    __slots__ = ["files_info"]
-    FILES_INFO_FIELD_NUMBER: _ClassVar[int]
-    files_info: _containers.RepeatedCompositeFieldContainer[FileInfo]
-    def __init__(self, files_info: _Optional[_Iterable[_Union[FileInfo, _Mapping]]] = ...) -> None: ...

@@ -18,12 +18,12 @@ class FileServicesStub(object):
         self.ListFiles = channel.unary_unary(
                 '/FileServices/ListFiles',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=FileServices__pb2.ListFilesResponse.FromString,
+                response_deserializer=FileServices__pb2.FilesResponse.FromString,
                 )
         self.FindFile = channel.unary_unary(
                 '/FileServices/FindFile',
                 request_serializer=FileServices__pb2.FindFileRequest.SerializeToString,
-                response_deserializer=FileServices__pb2.FindFileResponse.FromString,
+                response_deserializer=FileServices__pb2.FilesResponse.FromString,
                 )
 
 
@@ -48,12 +48,12 @@ def add_FileServicesServicer_to_server(servicer, server):
             'ListFiles': grpc.unary_unary_rpc_method_handler(
                     servicer.ListFiles,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=FileServices__pb2.ListFilesResponse.SerializeToString,
+                    response_serializer=FileServices__pb2.FilesResponse.SerializeToString,
             ),
             'FindFile': grpc.unary_unary_rpc_method_handler(
                     servicer.FindFile,
                     request_deserializer=FileServices__pb2.FindFileRequest.FromString,
-                    response_serializer=FileServices__pb2.FindFileResponse.SerializeToString,
+                    response_serializer=FileServices__pb2.FilesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -78,7 +78,7 @@ class FileServices(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/FileServices/ListFiles',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            FileServices__pb2.ListFilesResponse.FromString,
+            FileServices__pb2.FilesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -95,6 +95,6 @@ class FileServices(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/FileServices/FindFile',
             FileServices__pb2.FindFileRequest.SerializeToString,
-            FileServices__pb2.FindFileResponse.FromString,
+            FileServices__pb2.FilesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
