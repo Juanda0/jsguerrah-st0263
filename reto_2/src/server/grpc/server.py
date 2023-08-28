@@ -1,6 +1,6 @@
 from concurrent import futures
 import grpc
-import protobufs.python.FileServices_pb2 as FileServices_pb2
+import protobufs.python.FileServices_pb2 as FileServicesStub
 import protobufs.python.FileServices_pb2_grpc as FileServices_pb2_grpc
 from common.services import Service
 
@@ -13,24 +13,24 @@ class FileService(FileServices_pb2_grpc.FileServicesServicer):
         response = []
 
         for f in Service.listFiles():
-            fileInfo = FileServices_pb2.FileInfo(name=f['name'],
+            fileInfo = FileServicesStub.FileInfo(name=f['name'],
                                                 size=f['size'],
                                                 timestamp=f['timestamp'])
             response.append(fileInfo)
 
-        return FileServices_pb2.ListFilesResponse(file_info=response)
+        return FileServicesStub.FilesResponse(file_info=response)
 
     def FindFile(self, request, context):
         print("Request Find Files is received: " + str(request))
         response = []
 
         for f in Service.findFiles(request.file_name):
-            fileInfo = FileServices_pb2.FileInfo(name=f['name'],
+            fileInfo = FileServicesStub.FileInfo(name=f['name'],
                                                 size=f['size'],
                                                 timestamp=f['timestamp'])
             response.append(fileInfo)
 
-        return FileServices_pb2.FindFileResponse(files_info=response)
+        return FileServicesStub.FilesResponse(file_info=response)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
