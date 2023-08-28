@@ -13,9 +13,9 @@ class FileService(FileServices_pb2_grpc.FileServicesServicer):
         response = []
 
         for f in Service.listFiles():
-            fileInfo = FileServices_pb2.FileInfo(name=f.file_name,
-                                                size=f.size,
-                                                timestamp=f.formatted_date)
+            fileInfo = FileServices_pb2.FileInfo(name=f['name'],
+                                                size=f['size'],
+                                                timestamp=f['timestamp'])
             response.append(fileInfo)
 
         return FileServices_pb2.ListFilesResponse(file_info=response)
@@ -25,9 +25,9 @@ class FileService(FileServices_pb2_grpc.FileServicesServicer):
         response = []
 
         for f in Service.findFiles(request.file_name):
-            fileInfo = FileServices_pb2.FileInfo(name=f.file_name,
-                                                size=f.size,
-                                                timestamp=f.formatted_date)
+            fileInfo = FileServices_pb2.FileInfo(name=f['name'],
+                                                size=f['size'],
+                                                timestamp=f['timestamp'])
             response.append(fileInfo)
 
         return FileServices_pb2.FindFileResponse(files_info=response)
