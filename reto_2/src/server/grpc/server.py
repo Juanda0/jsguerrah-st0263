@@ -18,7 +18,12 @@ class FileService(FileServices_pb2_grpc.FileServicesServicer):
                                                 timestamp=f.timestamp)
             response.append(fileInfo)
 
-        return FileServices_pb2.ListFilesResponse(file_info=response)
+        try:
+            print('Casteado luce asi:', response)
+            return FileServices_pb2.ListFilesResponse(file_info=response)
+        except Exception as err:
+            print(err)
+            raise err
 
     def FindFile(self, request, context):
         print("Request Find Files is received: " + str(request))

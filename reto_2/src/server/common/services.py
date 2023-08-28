@@ -21,6 +21,7 @@ class FileServices:
                 file_info["size"] = size
                 file_info["timestamp"] = formatted_date
                 collection.append(file_info)
+        print('Respuesra procesada:', collection)
         return collection
 
     def findFiles(self, search: str) -> list:
