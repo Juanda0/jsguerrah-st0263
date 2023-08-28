@@ -1,8 +1,22 @@
 import subprocess
+import os
+import configparser
 
-def compile_proto(proto_file_path, output_dir):
+# Configuración inicial
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+config = configparser.ConfigParser()
+config.read(os.path.join(os.path.dirname(__file__), 'config', '.config'))
+
+PROTO_DIR = config['PATHS']['PROTO_DIR']
+PROTO_FILE = config['PATHS']['PROTO_FILE']
+OUTPUT_DIR = config['PATHS']['OUTPUT_DIR']
+
+def compile_proto():
     try:
-        command = ["python3", "-m", "grpc_tools.protoc", "-I", proto_dir, f"--python_out={output_dir}", f"--pyi_out={output_dir}", f"--grpc_python_out={output_dir}", proto_file_path]
+        command = ["python3",
+                    "-m", "grpc_tools.protoc",
+                    "-I", PROTO_DIR, f"--python_out={OUTPUT_DIR}",
+                    f"--pyi_out={OUTPUT_DIR}", f"--grpc_python_out={OUTPUT_DIR}", PROTO_FILE]
 
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
@@ -14,7 +28,4 @@ def compile_proto(proto_file_path, output_dir):
     except Exception as e:
         print("Ocurrió un error:", str(e))
 
-proto_dir = "./protobufs/proto"
-proto_file = "./protobufs/proto/FileServices.proto"
-output_directory = "./protobufs/python"
-compile_proto(proto_file, output_directory)
+compile_proto()
