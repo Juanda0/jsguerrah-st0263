@@ -142,6 +142,9 @@ The project uses **Flask** as a web framework to create an API. In addition, **g
 
 - **Modular Organization**: The code is organized in a modular fashion with a clear and defined directory structure for recognition of each aspect of the design.
 ## Response snapshots
+
+<img width="451" alt="image" src="https://github.com/Jguerra47/jsguerrah-st0263/assets/68879896/bc3bcd09-d8b9-4232-9b9b-f315ec30ff96">
+
 ## References
 
 - [RabbitMQ documentation](https://www.rabbitmq.com/getstarted.html)
