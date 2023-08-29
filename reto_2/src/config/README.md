@@ -1,4 +1,4 @@
-# IPs elaticas
+# IPs elásticas
 
 Las IPs para situar en los archivos de environment son las siguientes:
 
