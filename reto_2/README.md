@@ -152,6 +152,9 @@ The project uses **Flask** as a web framework to create an API. In addition, **g
 ## Check IPs
 Click [here](https://github.com/Jguerra47/jsguerrah-st0263/tree/main/reto_2/src/config)
 
+## Functionality Demo
+Access to a video that explains the project and test it. Click [here](https://drive.google.com/file/d/1lkoMbLLo_4g6_JrnPRfvipHvjW-7xCEZ/view?usp=sharing)
+
 ## References
 
 - [RabbitMQ documentation](https://www.rabbitmq.com/getstarted.html)
