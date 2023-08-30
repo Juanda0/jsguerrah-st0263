@@ -112,6 +112,10 @@ To run this project, you will need to add the following environment variables to
 
 # Tech description
 
+## Diagram
+
+![CommunicationProjectDiagram](https://github.com/Jguerra47/jsguerrah-st0263/assets/68879896/ad116a72-dc5b-47d7-a1f0-95ee725c235d)
+
 ## Development environment
 
 ### Language
