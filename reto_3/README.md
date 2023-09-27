@@ -52,7 +52,7 @@ apk update
 apk add postgresql-contrib
 psql -U postgres -d mi_basedatos -c "CREATE EXTENSION IF NOT EXISTS pg_trgm;"
 ```
-Finally, we just run `exit`and save the id of the instance for later
+Finally, we just run `exit`and save the ip of the instance for later
 
 ### NFS Config
 
@@ -99,11 +99,11 @@ restart: always
 
 At this point, both instances should be connected, so you should be able to see that the changes in one of them also happen in the other instance
 
-###NGINE X Configuration
+### NGINE X Configuration
 With two instances having the same information, we need to set up a reverse proxy that redirects traffic to these two machines.
 To do this, you will create an NGINX configuration file named nginx.conf.
 Inside it, you will put the following
-```yml
+```conf
 worker_processes auto;
 error_log /var/log/nginx/error.log;
 pid /run/nginx.pid;
@@ -133,7 +133,7 @@ proxy_set_header X-Forwarded-Proto $scheme;
 }
 ```
 With this done, we will proceed with the instantiation of an NGINX container. Remember that for this step you must have Docker and its tools installed. Here is the docker-compose.yml.
-```
+```yml
 version: '3.1'
 services:
 nginx:
