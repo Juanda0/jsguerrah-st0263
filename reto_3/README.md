@@ -19,3 +19,13 @@ The information and parameters of the project criteria are in the teacher's doma
 
 ## Tech Diagram
 ![Arquitectura](https://github.com/Jguerra47/jsguerrah-st0263/assets/63611163/bc4a9243-57fb-4c1b-a701-b1726c95a19b)
+
+## Development enviroment
+
+- compose: 3 3.1 y 3.8
+- postgres: 14.1-alpine
+- drupal: latest
+- nginx: latest
+
+## References
+[NFS configuration](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-20-04#step-7-mounting-the-remote-nfs-directories-at-boot)
