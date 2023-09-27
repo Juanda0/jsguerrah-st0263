@@ -52,7 +52,7 @@ apk update
 apk add postgresql-contrib
 psql -U postgres -d mi_basedatos -c "CREATE EXTENSION IF NOT EXISTS pg_trgm;"
 ```
-Finally, we just run `exit`and save the id of the instance for later
+Finally, we just run `exit`and save the ip of the instance for later
 
 ### NFS Config
 
